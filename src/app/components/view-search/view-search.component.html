@@ -1,0 +1,15 @@
+
+<div class="card shadow bg-color-cards m-2 p-2" *ngIf="users.length >0">
+  <div class="card-body">
+    <h5 class="card-title"> Total usuarios: {{users.length}}</h5>
+    <ul class="list-group">
+      <li
+        *ngFor="let user of users"
+        class="list-group-item list-group-item-action li-user-search"
+      >
+        <i class="fa-regular fa-user"></i>
+        <a [routerLink]="['/user', user.login]"> {{ user.login }}</a>
+      </li>
+    </ul>
+  </div>
+</div>

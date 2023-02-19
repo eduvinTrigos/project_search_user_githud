@@ -1,0 +1,103 @@
+<a href="/search" class="btn btn-sm btn-primary  m-3"><i class="fa-solid fa-arrow-left"></i></a>
+<div class="row" *ngIf="user">
+  <div  class="col-lg-3 me-lg-auto">
+    <div class="card border-0 shadow mb-6 mb-lg-0">
+      <div class="card-header bg-gray-100 py-4 border-0 text-center">
+        <a class="d-inline-block" href="#">
+          <img
+            class="d-block avatar avatar-xxl p-2 mb-2"
+            [src]="user.avatar_url"
+            alt="avatar"
+          >
+        </a>
+        <h5>{{ user.name }}</h5>
+        <h5>{{ user.login }}</h5>
+        <p class="text-muted text-sm mb-0">{{ user.bio }}</p>
+      </div>
+      <div class="card-body p-4">
+        <div class="d-flex align-items-center mb-3">
+          <div class="icon-rounded icon-rounded-sm bg-primary-light">
+            <i class="fa-regular fa-user"></i>
+          </div>
+          <div>
+            <p class="mb-0">{{ user.followers }} Followers - {{ user.following }} Following</p>
+          </div>
+        </div>
+        <hr>
+
+        <ul class="card-text text-muted">
+          <li>
+            <div class="d-flex align-items-center mb-3">
+              <div class="p-1 bg-primary-light">
+                <i class="fa-solid fa-building"></i>
+              </div>
+              <div>
+                <p class="mb-0">{{ user.company }} </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="d-flex align-items-center mb-3">
+              <div class="p-1 bg-primary-light">
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+              <div>
+                <p class="mb-0">{{ user.location }} </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-9 me-lg-auto">
+    <div class="m-1">
+      <div class="card border-0 shadow p-3 mb-lg-0 bg-gray-100">
+        <div class="text-center">
+          <h3>Proyectos de {{ user.name }} </h3>
+        </div>
+          <div class="row">
+              <div
+                class="col-6 "
+                *ngFor="let project of user.project_user"
+              >
+                <div class="card m-1 card-heigt flex-fill">
+                  <div class="card-header">
+                    <i class="fa-solid fa-book"></i>
+                    {{project.full_name}}
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item card-description">
+                        {{ project.description }}
+                      </li>
+                      <li class="list-group-item">
+                        <a [href]="project.html_url" target="_blank">
+                          <i class="fa-solid fa-link"></i>
+                          Proyecto
+                        </a>
+
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col-6">
+                            <i class="fa-regular fa-window-maximize"></i>
+                            {{ project.size }}
+                          </div>
+                          <div class="col-6">
+                            <i class="fa-regular fa-user"></i>
+                            {{ project.watchers }}
+                          </div>
+                        </div>
+
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+

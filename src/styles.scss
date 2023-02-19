@@ -1,1 +1,78 @@
 /* You can add global styles to this file, and also import other style files */
+.container{
+  height: 100vh;
+}
+body {
+  background-image: url('./assets/githud_page.png');
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+.bg-color-cards{
+  background-color: #ECF1FA;
+}
+.grap-canva{
+  max-width: 100%;
+  max-height: 100%;
+}
+.li-user-search{
+  display: flex;
+  justify-content: space-between;
+}
+.card-header:first-child {
+  border-radius: var(--bs-card-inner-border-radius) var(--bs-card-inner-border-radius) 0 0;
+}
+
+.icon-rounded {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 4rem;
+}
+.icon-rounded svg,
+.icon-rounded i {
+  vertical-align: middle;
+}
+.icon-rounded.icon-rounded-sm {
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+}
+
+.svg-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: text-bottom;
+  stroke: currentColor;
+  stroke-width: 3;
+  --layer1: currentColor;
+  --layer2: currentColor;
+}
+
+.svg-icon.svg-icon-md {
+  width: 30px;
+  height: 30px;
+}
+
+.avatar {
+  display: inline-block;
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  border: #dee2e6;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+  line-height: 3rem;
+}
+
+.avatar.avatar-xxl {
+  width: 10rem;
+  min-width: 10rem;
+  height: 10rem;
+  line-height: 10rem;
+}
