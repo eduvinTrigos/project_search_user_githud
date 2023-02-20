@@ -19,20 +19,20 @@ export class SearchComponent {
   onSubmit() {
     this.onSearch=true;
     if (!this.searchTerm) {
-      this.ErrorServiceService.showError('La variable searchTerm no tiene un valor válido');
+      this.ErrorServiceService.setErrorMessage('La variable searchTerm no tiene un valor válido');
       return;
     }
 
     // Validar mínimo 4 caracteres
     if (this.searchTerm.length < 4) {
-      this.ErrorServiceService.showError('La búsqueda debe tener al menos 4 caracteres');
+      this.ErrorServiceService.setErrorMessage('La búsqueda debe tener al menos 4 caracteres');
 
       return;
     }
 
     // Validar palabra prohibida
     if (this.searchTerm.toLowerCase() === 'doublevpartners') {
-      this.ErrorServiceService.showError('La palabra "doublevpartners" no está permitida en la búsqueda');
+      this.ErrorServiceService.setErrorMessage('La palabra "doublevpartners" no está permitida en la búsqueda');
       return;
     }
 

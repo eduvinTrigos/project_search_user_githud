@@ -6,10 +6,12 @@ import { Subject } from 'rxjs';
 })
 export class ErrorServiceService {
 
-  private errorMessage = new Subject<string>();
-  errorMessage$ = this.errorMessage.asObservable();
+  private errorMessageSource = new Subject<string>();
+  errorMessage$ = this.errorMessageSource.asObservable();
 
-  showError(message: string) {
-    this.errorMessage.next(message);
+  constructor() {}
+
+  setErrorMessage(errorMessage: string) {
+    this.errorMessageSource.next(errorMessage);
   }
 }

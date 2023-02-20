@@ -8,12 +8,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./error-message.component.scss']
 })
 export class ErrorMessageComponent implements OnInit, OnDestroy {
-  @Input() message: string = '';
-  @Input() error: boolean = false;
-  @Output() closeEvent = new EventEmitter();
-
-  visible: boolean = true;
   errorMessage: string = '';
+  error: boolean = false;
   errorMessageSubscription!: Subscription;
 
   constructor(private errorService: ErrorServiceService) {}
@@ -32,7 +28,7 @@ export class ErrorMessageComponent implements OnInit, OnDestroy {
   }
 
   close() {
-    this.visible = false;
-    this.closeEvent.emit();
+    this.error = false;
+    this.errorMessage = '';
   }
 }

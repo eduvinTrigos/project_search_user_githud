@@ -1,5 +1,5 @@
-<div class="alert alert-danger alert-dismissible fade show" *ngIf="visible" role="alert">
-  <p class="mb-0">{{ message }}</p>
+<div class="alert alert-danger error-alert" *ngIf="error" role="alert">
+  <p>{{ errorMessage }}</p>
   <button type="button" class="close" (click)="close()">
     <span aria-hidden="true">&times;</span>
   </button>

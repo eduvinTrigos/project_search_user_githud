@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { GetSearchComponent } from '../get-search/get-search.component';
 import { forkJoin } from 'rxjs';
+import { ErrorServiceService } from '../../error-service.service';
 
 @Component({
   selector: 'app-user-git',
@@ -18,6 +19,7 @@ export class UserGitComponent {
     private route: ActivatedRoute,
     private http: HttpClient,
     private searchService: GetSearchComponent,
+    private ErrorServiceService: ErrorServiceService
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -30,27 +32,15 @@ export class UserGitComponent {
           forkJoin([project_user$]).subscribe((results) => {
             // Agregar la nueva propiedad al objeto response
             response.project_user = results[0];
-            console.log(response);
             // Asignar el objeto actualizado a la variable this.user
             this.user = response;
           });
         },
         error: (error) => {
-          console.log(error);
+          this.ErrorServiceService.setErrorMessage(error);
         }
       });
 
-    });
-  }
-
-  private getDataUser( url:string ){
-    this.searchService.getDataUrl(url).subscribe({
-      next: (response: any) => {
-        return response;
-      },
-      error: (error:string) => {
-        return [];
-      }
     });
   }
 }

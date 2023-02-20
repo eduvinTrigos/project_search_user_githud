@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { Chart, LinearScale, registerables } from 'chart.js';
+import { Chart, registerables } from 'chart.js';
 import { GetSearchComponent } from '../get-search/get-search.component';
+import { ErrorServiceService } from '../../error-service.service';
 
 @Component({
   selector: 'app-user-followers-grap',
@@ -11,7 +12,10 @@ export class UserFollowersGrapComponent implements OnInit, OnChanges {
   @Input() users: any[] = [];
   chart: any = null;
   @ViewChild('userFollowersChart') userFollowersChart!: ElementRef;
-  constructor(private searchService: GetSearchComponent) {}
+  constructor(
+    private searchService: GetSearchComponent,
+    private ErrorServiceService: ErrorServiceService
+  ) {}
 
   ngOnInit() {
     Chart.register(...registerables);
@@ -60,7 +64,7 @@ export class UserFollowersGrapComponent implements OnInit, OnChanges {
             }
           },
           error: (error) => {
-            console.log(error);
+            this.ErrorServiceService.setErrorMessage(error);
           }
         });
       }

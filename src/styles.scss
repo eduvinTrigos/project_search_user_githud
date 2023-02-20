@@ -76,3 +76,39 @@ body {
   height: 10rem;
   line-height: 10rem;
 }
+
+.error-alert {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  position: relative;
+}
+
+.error-alert p {
+  margin-bottom: 0;
+}
+
+.error-alert .close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.error-alert .close:hover {
+  cursor: pointer;
+  color: #dc3545;
+}
+
+.error-alert .close:focus {
+  outline: none;
+}
+
+.error-alert .close span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.error-alert .close span:hover {
+  color: #dc3545;
+}
